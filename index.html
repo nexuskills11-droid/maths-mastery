@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Math Mastery 10 — An interactive learning platform for Class 10 NCERT Mathematics. Master all topics with step-by-step explanations, practice quizzes, and personalized learning.">
+  <meta name="keywords" content="Class 10 Math, NCERT Mathematics, Math Learning, Algebra, Geometry, Trigonometry, Online Education">
+  <meta name="author" content="Math Mastery 10">
+  <meta name="theme-color" content="#8b5cf6">
+
+  <title>Math Mastery 10 — Master Class 10 Mathematics</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- KaTeX CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <a href="#/" class="navbar-logo" aria-label="Math Mastery 10 Home">
+        <span class="logo-icon">📐</span>
+        <span>Math Mastery</span>
+      </a>
+
+      <ul class="navbar-links" id="nav-links">
+        <li><a href="#/" aria-label="Home">🏠 Home</a></li>
+        <li><a href="#/topics" aria-label="Topics">📚 Topics</a></li>
+        <li><a href="#/practice" aria-label="Practice">✏️ Practice</a></li>
+        <li><a href="#/formulas" aria-label="Formulas">📋 Formulas</a></li>
+        <li><a href="#/doubts" aria-label="Doubts">❓ Doubts</a></li>
+        <li><a href="#/profile" aria-label="Dashboard">📊 Dashboard</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <button class="search-trigger" id="search-trigger" aria-label="Search">
+          🔍 Search...
+          <kbd>Ctrl+K</kbd>
+        </button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Sidebar -->
+  <div class="sidebar-overlay" id="sidebar-overlay" role="dialog" aria-label="Navigation menu">
+    <aside class="mobile-sidebar">
+      <a href="#/" class="navbar-logo" style="margin-bottom: 1rem;">
+        <span class="logo-icon">📐</span>
+        <span>Math Mastery</span>
+      </a>
+      <ul class="sidebar-links" id="sidebar-links">
+        <li><a href="#/">🏠 Home</a></li>
+        <li><a href="#/topics">📚 Topics</a></li>
+        <li><a href="#/practice">✏️ Practice</a></li>
+        <li><a href="#/formulas">📋 Formulas</a></li>
+        <li><a href="#/doubts">❓ Doubts</a></li>
+        <li><a href="#/profile">📊 Dashboard</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+    <a href="#/" class="mobile-bottom-nav-item">
+      <span>🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="#/topics" class="mobile-bottom-nav-item">
+      <span>📚</span>
+      <span>Topics</span>
+    </a>
+    <a href="#/practice" class="mobile-bottom-nav-item">
+      <span>✏️</span>
+      <span>Practice</span>
+    </a>
+    <a href="#/doubts" class="mobile-bottom-nav-item">
+      <span>❓</span>
+      <span>Doubts</span>
+    </a>
+    <a href="#/profile" class="mobile-bottom-nav-item">
+      <span>📊</span>
+      <span>Stats</span>
+    </a>
+  </nav>
+
+  <!-- Search Modal -->
+  <div class="search-overlay" id="search-overlay" role="dialog" aria-label="Search">
+    <div class="search-modal">
+      <input type="text" id="search-input" placeholder="Search topics, formulas, questions..." aria-label="Search" autocomplete="off">
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content" id="app" role="main">
+    <!-- Pages render here -->
+  </main>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- EXTERNAL LIBRARIES (loaded from CDN) -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <!-- KaTeX JS for math rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Chart.js for analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- APP SCRIPTS (loaded in dependency order) -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <!-- 1. Data files (no dependencies) -->
+  <script src="src/data/topics.js"></script>
+  <script src="src/data/questions.js"></script>
+  <script src="src/data/formulas.js"></script>
+
+  <!-- 2. Core utilities -->
+  <script src="src/storage.js"></script>
+  <script src="src/theme.js"></script>
+  <script src="src/app.js"></script>
+
+  <!-- 3. Page renderers -->
+  <script src="src/pages/home.js"></script>
+  <script src="src/pages/topics.js"></script>
+  <script src="src/pages/topicDetail.js"></script>
+  <script src="src/pages/practice.js"></script>
+  <script src="src/pages/formulas.js"></script>
+  <script src="src/pages/doubts.js"></script>
+  <script src="src/pages/profile.js"></script>
+
+  <!-- 4. Main entry point (initializes everything) -->
+  <script src="main.js"></script>
+
+</body>
+</html>
